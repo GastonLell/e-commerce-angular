@@ -1,16 +1,12 @@
-<div *ngIf="product">
-    <div id="product-card">
-      <img
-        id="product-card-img"
-        [src]="product.image"
-        [alt]=" product.title"
-      />
-      <h2 class="product-card-description">
-        {{ product.title }}
-      </h2>
-      <h3 class="product-card-description">
-        {{ product.price | currency: "US" }}
-      </h3>
-      <button class="button" [routerLink]="['product', product.id]">Detalles</button>
-    </div>
+<div *ngIf="product" id="product-card">
+  <img id="product-card-img" [src]="product.image" [alt]="product.title" />
+  <h2 class="product-card-description">
+    {{ product.title }}
+  </h2>
+  <h3 class="product-card-description">
+    {{ product.price | currency: "US" }}
+  </h3>
+  <button class="button" [routerLink]="['product', product.id]">
+    Detalles
+  </button>
 </div>

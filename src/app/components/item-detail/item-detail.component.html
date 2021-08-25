@@ -1,12 +1,19 @@
 <div *ngIf="!product">
     <p>Cargando...</p>
 </div>
+
 <div id="detail-container" *ngIf="product">
-    <h2>
-        {{product.title}}
-    </h2>
-    <img  [src]="product.image" [alt]="product.name" />
-    <h4>
-        {{product.price | currency: 'US'}}
-    </h4>
+    <div class="detail-column">
+        <img  [src]="product.image" [alt]="product.name" />
+    </div>
+    <div class="detail-column">
+        <h2>
+            {{product.title}}
+        </h2>
+        
+        <h4>
+            {{product.price | currency: 'US'}}
+        </h4>
+    </div>
+
 </div>
