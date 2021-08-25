@@ -1,0 +1,12 @@
+<div *ngIf="!product">
+    <p>Cargando...</p>
+</div>
+<div id="detail-container" *ngIf="product">
+    <h2>
+        {{product.title}}
+    </h2>
+    <img  [src]="product.image" [alt]="product.name" />
+    <h4>
+        {{product.price | currency: 'US'}}
+    </h4>
+</div>

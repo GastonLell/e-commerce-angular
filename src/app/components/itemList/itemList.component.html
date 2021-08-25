@@ -1,0 +1,8 @@
+<h2>
+  Mis Productos
+</h2>
+<div *ngIf="aProducts" id="products-container">
+
+  <app-Item [product]="product" *ngFor="let product of aProducts"></app-Item>
+
+</div>
