@@ -1,8 +1,8 @@
 <div *ngIf="!product">
     <p>Cargando...</p>
 </div>
-
-<div id="detail-container" *ngIf="product">
+<div id="detail-container">
+<div id="detail-card" *ngIf="product">
     <div class="detail-column">
         <img  [src]="product.image" [alt]="product.name" />
     </div>
@@ -11,9 +11,11 @@
             {{product.title}}
         </h2>
         
-        <h4>
+        <h3>
             {{product.price | currency: 'US'}}
-        </h4>
+        </h3>
+        <button class="button">Agregar al carrito</button>
     </div>
 
+</div>
 </div>
