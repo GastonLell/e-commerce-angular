@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-//ver cuando usar
-/* import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators'; */
-
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +12,6 @@ export class ServiceProductsService {
   }
 
   public getById(id:any){
-    console.log('id desde service', id)
     return this.http.get(`${this.url}/${id}`)
   }
   constructor(

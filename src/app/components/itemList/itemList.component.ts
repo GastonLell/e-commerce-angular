@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { ServiceProductsService } from 'src/serviceProducts.service';
-import {IProduct} from '../../models/Product';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { ServiceProductsService } from 'src/serviceProducts.service';
+
+import {IProduct} from '../../models/Product';
 
 @Component({
   selector: 'app-itemList',
@@ -9,24 +13,29 @@ import {IProduct} from '../../models/Product';
   styleUrls: ['./itemList.component.css']
 })
 
-export class ItemListComponent implements OnInit {
+export class ItemListComponent implements OnInit, OnDestroy {
 
   aProducts: any  = [];
 
+  onDestroy$: Subject<boolean> = new Subject();
+
   constructor(
     private ServiceProductsService: ServiceProductsService
-  ) { }
+  ) {}
 
   getProducts(): void{
     this.ServiceProductsService.getAll()
+    .pipe(takeUntil(this.onDestroy$))
     .subscribe(res => {
-      console.log(res)
       this.aProducts = res
     })
   }
+
   ngOnInit() {
     this.getProducts()
-    console.log(this.aProducts)
   }
 
+  ngOnDestroy(): void{
+    this.onDestroy$.next(true)
+  }
 }
