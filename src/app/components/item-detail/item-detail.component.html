@@ -14,7 +14,7 @@
         <h3>
             {{product.price | currency: 'US'}}
         </h3>
-        <button class="button">Agregar al carrito</button>
+        <button class="button" (click)="addToCart(product)">Agregar al carrito</button>
     </div>
 
 </div>

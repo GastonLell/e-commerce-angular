@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { ServiceProductsService } from 'src/serviceProducts.service';
+import { ServiceProductsService } from '../../services/products/serviceProducts.service';
 
 import {IProduct} from '../../models/Product';
 
