@@ -1,19 +1,27 @@
-import { Injectable, OnInit } from '@angular/core';
-import {pipe} from 'rxjs';
-import {filter} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { IProduct } from 'src/app/models/Product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
-  cart: any = [];
 
-  addToCart(product: any){
-    
-    this.cart = [...this.cart, product]
-    
-    console.log(this.cart)
-  }
+export class CartService {
 
   constructor() { }
+
+  cart: IProduct[] = [];
+
+  addToCart(product: IProduct){
+    this.cart = [...this.cart, product]
+  }
+
+  deleteItem(id: number){
+    let newArray = this.cart.filter(product => product.id !== id)
+    this.cart = newArray;
+  } 
+
+  getCart(){
+    return this.cart;
+  }
+ 
 }

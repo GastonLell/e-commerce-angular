@@ -15,7 +15,7 @@ import {IProduct} from '../../models/Product';
 
 export class ItemListComponent implements OnInit, OnDestroy {
 
-  aProducts: any  = [];
+  aProducts: IProduct[] = [];
 
   onDestroy$: Subject<boolean> = new Subject();
 
@@ -31,7 +31,7 @@ export class ItemListComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getProducts()
   }
 

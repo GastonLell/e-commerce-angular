@@ -24,14 +24,7 @@
     object-fit: scale-down;
 }
 
-.button{
-    width: 100%;
-    padding: 8px;
-    background-color: rgb(105, 80, 219);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-}
+
 @media screen and (min-width: 992px) {
     #detail-container{
         flex-direction: row;
