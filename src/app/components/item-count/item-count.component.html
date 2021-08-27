@@ -1,0 +1,14 @@
+<div id="counter-container">
+    <button (click)="operacion(-1)" [disabled]="count === 1">
+        -
+    </button>
+
+    <span>
+        {{count}}
+    </span>
+
+    <button (click)="operacion(1)" [disabled]="count === 10">
+        +
+    </button>
+</div>
+<button class="button" (click)="addToCart()">Agregar al carrito</button>
