@@ -9,6 +9,7 @@ import { ItemComponent } from './components/Item/Item.component';
 import { ItemDetailComponent } from './components/item-detail/item-detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ItemCountComponent } from './components/item-count/item-count.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [					
@@ -17,13 +18,15 @@ import { ItemCountComponent } from './components/item-count/item-count.component
       ItemComponent,
       ItemDetailComponent,
       CartComponent,
-      ItemCountComponent
+      ItemCountComponent,
+      NavbarComponent
    ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
       {path: '', component: ItemListComponent },
+      {path: 'category/:idCategory', component: ItemListComponent},
       {path: 'product/:idProduct', component: ItemDetailComponent },
       {path: 'cart', component: CartComponent}
     ]),

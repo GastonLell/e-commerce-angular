@@ -1,0 +1,16 @@
+<div id="navbar-container">
+<nav id="navbar">
+    <h1 routerLink="" class="brand-link">
+        {{brand}}
+    </h1>
+
+    <ul class="nav-menu" *ngIf="(categories$ |async)">
+        <li *ngFor="let category of (categories$ |async)">
+            <a [routerLink]="['category', category]">
+                {{category.toUpperCase()}}
+            </a>
+        </li>
+    </ul>
+    <button routerLink="cart">Carrito</button>
+</nav>
+</div>
