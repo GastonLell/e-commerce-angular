@@ -23,7 +23,9 @@
     height: 400px;
     object-fit: scale-down;
 }
-
+.detail-cargando{
+    padding: 0 20px;
+}
 
 @media screen and (min-width: 992px) {
     #detail-container{

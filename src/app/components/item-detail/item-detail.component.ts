@@ -14,7 +14,7 @@ import { ServiceProductsService } from '../../services/products/serviceProducts.
 })
 
 export class ItemDetailComponent implements OnInit, OnDestroy {
-  product: any;
+  product!: IProduct;
   onDestroy$: Subject<boolean> = new Subject();
 
   constructor(

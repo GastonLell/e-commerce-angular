@@ -1,10 +1,10 @@
-<div *ngIf="!product">
+<div class="detail-cargando" *ngIf="!product">
     <p>Cargando...</p>
 </div>
 <div id="detail-container">
 <div id="detail-card" *ngIf="product">
     <div class="detail-column">
-        <img  [src]="product.image" [alt]="product.name" />
+        <img  [src]="product.image" [alt]="product.title" />
     </div>
     <div class="detail-column">
         <h2>
