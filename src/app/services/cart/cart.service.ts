@@ -11,8 +11,22 @@ export class CartService {
 
   cart: IProduct[] = [];
 
+  isInCart(id: number){
+    return this.cart.some(product => product.id === id)
+  }
+
   addToCart(product: IProduct){
-    this.cart = [...this.cart, product]
+    console.log(this.isInCart(product.id))
+
+    if(this.isInCart(product.id)){
+
+      this.cart = this.cart.map(productIterar => productIterar.id === product.id ? product : productIterar)
+
+    }else {
+
+      this.cart = [...this.cart, product];
+
+    }
   }
 
   deleteItem(id: number){
