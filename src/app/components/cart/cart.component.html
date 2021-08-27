@@ -1,9 +1,42 @@
-<div id="cart-container">
-    <div id="cart-list">
-       <div *ngIf="products">
-            <h2 *ngFor="let product of products">
-                {{product.title}}
-            </h2>
-       </div>
-    </div>
+
+<div *ngIf="products.length === 0">
+    <h2>
+        No hay productos en el carrito
+    </h2>
 </div>
+
+
+<table *ngIf="products.length !== 0" class="table">
+    <thead>
+        <tr>
+            <th>
+               Producto
+            </th>
+            <th>
+                Cantidad
+             </th>
+            <th>
+                Precio
+            </th>
+            <th>
+                Eliminar
+            </th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let product of products">
+        <tr>
+            <td>
+              {{product.title}}
+            </td>
+            <td>
+                {{product.quanty}}
+              </td>
+            <td>
+                {{product.price | currency: 'US'}}
+            </td>
+            <td>
+                <button (click)="deleteProduct(product.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
