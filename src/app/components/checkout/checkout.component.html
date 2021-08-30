@@ -1,0 +1,75 @@
+<div class="form-checkout-container">
+<form class="form-checkout" [formGroup]="form" (ngSubmit)="save($event)">
+
+    <!-- NAME -->
+    <div class="form-group">
+        Name: <br/>
+        <input  type="text" formControlName="name">
+    </div>
+    <p *ngIf="form.get('name')?.errors && form.get('name')?.touched">
+        <small *ngIf="form.get('name')?.hasError('required')">
+            El campo es requerido
+        </small>
+    </p>
+
+    <!-- FECHA -->
+    <div class="form-group">
+        Fecha: <br/>
+        <input type="date" formControlName="date">
+    </div>
+
+    <p *ngIf="form.get('date')?.errors && form.get('date')?.touched">
+        <small *ngIf="form.get('date')?.hasError('required')">
+            El campo es requerido
+        </small>
+    </p>
+   
+    <!-- EMAIL -->
+    <div class="form-group">
+        Email: <br/>
+        <input type="email" formControlName="email">
+    </div>
+    <p *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+        <small *ngIf="form.get('email')?.hasError('required')">
+            El campo es requerido
+        </small>
+        <small *ngIf="form.get('email')?.hasError('email')">
+            El campo debe contener un email correcto
+        </small>
+    </p>
+
+    <!-- DESCRIPCION -->
+    <div class="form-group">
+        Descripción: <br/>
+        <textarea cols="30" rows="10" formControlName="description"></textarea> <br/>
+        {{ form.get('description')?.value.length }} / 30
+    </div>
+    <p *ngIf="form.get('description')?.errors && form.get('description')?.touched">
+        <small *ngIf="form.get('description')?.hasError('required')">
+            El campo es requerido
+        </small>
+        <small *ngIf="form.get('description')?.hasError('maxlength')">
+            El campo no debe excederse de los 30 caracteres
+        </small>
+    </p>
+
+    <!-- CATEGORIA -->
+    <div class="form-group">
+        Categoría: <br/>
+        <select formControlName="category" >
+            <option [defaultSelected]="true">-- SELECCIONE CATEGORIA --</option>
+            <option value="1">Categoría 1</option>
+            <option value="2">Categoría 2</option>
+            <option value="3">Categoría 3</option>
+        </select>
+    </div>
+    <p *ngIf="form.get('category')?.errors && form.get('category')?.touched">
+        <small *ngIf="form.get('category')?.hasError('required')">
+            El campo es requerido
+        </small>
+    </p>
+
+
+    <button class="button" type="submit">Comprar</button>
+</form>
+</div>

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { CartService } from '../../services/cart/cart.service';
-import { IProduct } from 'src/app/models/Product';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-item-count',
   templateUrl: './item-count.component.html',
@@ -12,7 +12,7 @@ export class ItemCountComponent implements OnInit {
 
   count = 1;
 
-  constructor(  private CartService: CartService ) { }
+  constructor(  private CartService: CartService, private Router: Router ) { }
 
   operacion(num: number){
     this.count += num
@@ -22,6 +22,7 @@ export class ItemCountComponent implements OnInit {
   addToCart(): void{
     this.CartService.addToCart({...this.product, quanty: this.count});
     window.alert(`Agregaste ${this.product.title} al carrito`)
+    this.Router.navigate(['/'])
   }
 
   ngOnInit(): void {

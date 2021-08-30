@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -10,7 +10,7 @@ import { ItemDetailComponent } from './components/item-detail/item-detail.compon
 import { CartComponent } from './components/cart/cart.component';
 import { ItemCountComponent } from './components/item-count/item-count.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import { CheckoutComponent } from './components/checkout/checkout.component';
 @NgModule({
   declarations: [					
     AppComponent,
@@ -19,16 +19,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       ItemDetailComponent,
       CartComponent,
       ItemCountComponent,
-      NavbarComponent
+      NavbarComponent,
+      CheckoutComponent
    ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {path: '', component: ItemListComponent },
       {path: 'category/:idCategory', component: ItemListComponent},
       {path: 'product/:idProduct', component: ItemDetailComponent },
-      {path: 'cart', component: CartComponent}
+      {path: 'cart', component: CartComponent},
+      {path: 'checkout', component: CheckoutComponent}
     ]),
     HttpClientModule
   ],

@@ -1,5 +1,4 @@
-
-<div *ngIf="products.length === 0">
+<div class="table" *ngIf="products.length === 0">
     <h2>
         No hay productos en el carrito
     </h2>
@@ -40,3 +39,6 @@
         </tr>
     </tbody>
 </table>
+<div class="finalizar-container" *ngIf="products.length > 0">
+    <a class="button-finalizar" routerLink="/checkout">Finalizar compra</a>
+</div>
